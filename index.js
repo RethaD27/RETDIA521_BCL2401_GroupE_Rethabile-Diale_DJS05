@@ -55,3 +55,5 @@ const createStore = (reducer) => {
 
   return { getState, dispatch, subscribe };
 };
+
+const store = createStore(reducer);
