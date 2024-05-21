@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
     case DECREMENT:
       return { ...state, count: state.count - 1 };
     case RESET:
-      return { ...state, count: state.count + 1 };
+      return { ...state, count: 0 };
     case ADD:
       return { ...state, count: state.count + 1 };
     case SUBTRACT:
@@ -70,14 +70,17 @@ store.subscribe(() => {
 });
 
 // Log the initial state
-console.log("Initial State:", store.getState());
+console.log("Initial State:", store.getState()); // Initial State: { count: 0 }
 
+// SCENARIO 2: Incrementing the Counter
 // Dispatch ADD actions to set state to count: 2
 store.dispatch(add()); // State: { count: 1 }
 store.dispatch(add()); // State: { count: 2 }
 
+// SCENARIO 3: Decrementing the Counter
 // Dispatch SUBTRACT action
 store.dispatch(subtract()); // State: { count: 1 }
 
+// SCENARIO 4: Resetting the Counter
 // Dispatch RESET action
 store.dispatch(reset()); // State: { count: 0 }
